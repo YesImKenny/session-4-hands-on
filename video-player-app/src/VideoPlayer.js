@@ -16,7 +16,7 @@ const VideoPlayer = () => {
 
   const changeVideo = (idx) => {
     setSelectedVideoIndex(idx);
-    setId(getVideoIdFromPageUrl(videos[idx].ur));
+    setId(getVideoIdFromPageUrl(videos[idx].url));
   }
   
   let rootClassName = 'container-section';
