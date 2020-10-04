@@ -7,6 +7,7 @@ class VideoList extends React.Component {
         var {
             videos,
             selectedVideoIndex,
+            changeVideo
         } = this.props;
 
         return (
@@ -23,6 +24,7 @@ class VideoList extends React.Component {
                                 videoDescription={description}
                                 index={index}
                                 isSelected={isSelected}
+                                changeVideo={changeVideo.bind(null, index)}
                             />
                         );
                     })

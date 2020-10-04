@@ -9,6 +9,7 @@ class VideoButton extends React.Component {
             videoImage,
             videoDescription,
             isSelected,
+            changeVideo,
         } = this.props;
 
         var buttonClassName = 'video';
@@ -21,7 +22,7 @@ class VideoButton extends React.Component {
 
         return (
             <div
-                className={buttonClassName}
+                className={buttonClassName} onClick={changeVideo}
             >
                 <img src={`${videoImage}`} alt="" className="video-image" />
                     <div className="description">

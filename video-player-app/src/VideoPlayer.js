@@ -13,20 +13,22 @@ class VideoPlayer extends React.Component {
         }
     }
 
-    componentDidMount() {
-        //update state with id
-        this.setState({
-            id: getVideoIdFromPageUrl(this.state.videos[this.state.selectedVideoIndex].url)
-        })
+    componentDidMount = () => {
+      this.setState({
+        id: getVideoIdFromPageUrl(this.state.videos[this.state.selectedVideoIndex].url)
+      })
     }
 
+
+    changeVideo = (idx) => {
+      this.setState((state, props) => ({
+        selectedVideoIndex: idx,
+        id: getVideoIdFromPageUrl(state.videos[idx].url)
+      }))
+    }
+      
+
     render() {
-        // var videos = videosList;
-        // var selectedVideoIndex = 0;
-
-        // var id = getVideoIdFromPageUrl(videos[selectedVideoIndex].url);
-        // console.log(videos);
-
         var videos = this.state.videos;
         var selectedVideoIndex = this.state.selectedVideoIndex;
         var id = this.state.id;
@@ -51,6 +53,7 @@ class VideoPlayer extends React.Component {
                 <VideoList
                         videos={videos}
                         selectedVideoIndex={selectedVideoIndex}
+                        changeVideo={this.changeVideo}
                 />
             </div>
         );
